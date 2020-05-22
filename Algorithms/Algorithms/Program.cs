@@ -1,7 +1,4 @@
 ﻿using System;
-using Algorithms.Percolation;
-using Algorithms.Percolation.Algorithm;
-using Algorithms.Percolation.Helpers;
 
 namespace Algorithms
 {
@@ -9,16 +6,35 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var percolator = new Percolator(14,
-                new WquWithPathCompressionConnector(),
-                new WquWithCompressionPathTilesGenerator(),
-                new RandomProvider(),
-                new SquareMatrixOperations());
+            var input = "1 2 3 - - 4 5 6 -";
+            var operations = input.Split(' ');
+            var queue = new LinkedListQueue<int>();
+            var stack = new LinkedListStack<int>();
 
-            var openTiles = percolator.BeginPercolation();
+            foreach (var operation in operations)
+            {
+                if (operation == "-")
+                {
+                    queue.Dequeue();
+                    stack.Pop();
+                }
+                else
+                {
+                    queue.Enqueue(Convert.ToInt32(operation));
+                    stack.Push(Convert.ToInt32(operation));
+                }
+            }
 
-            Console.WriteLine();
-            Console.WriteLine($"Open tiles : {openTiles}");
+            Console.WriteLine("QUEUE");
+            foreach (var element in queue)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine("STACK");
+            foreach (var element in stack)
+            {
+                Console.WriteLine(element);
+            }
 
             Console.ReadLine();
         }
