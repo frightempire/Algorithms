@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Algorithms
+namespace Algorithms.StackQueue.Helpers
 {
-    public class LinkedListEnumerator<T> : IEnumerator<T>
+    public class SinglyLinkedListEnumerator<T> : IEnumerator<T>
     {
-        private readonly Node<T> _first;
-        private Node<T> _current;
+        private readonly SinglyLinkedNode<T> _first;
+        private SinglyLinkedNode<T> _current;
 
-        public LinkedListEnumerator(Node<T> first)
+        public SinglyLinkedListEnumerator(SinglyLinkedNode<T> first)
         {
             _first = first;
-            _current = new Node<T>
+            _current = new SinglyLinkedNode<T>
             {
                 Next = first,
                 Item = default

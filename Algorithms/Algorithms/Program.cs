@@ -1,4 +1,5 @@
 ﻿using System;
+using Algorithms.StackQueue.Modifications;
 
 namespace Algorithms
 {
@@ -6,32 +7,16 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var input = "1 2 3 - - 4 5 6 -";
-            var operations = input.Split(' ');
-            var queue = new LinkedListQueue<int>();
-            var stack = new LinkedListStack<int>();
+            var deque = new Deque<int>();
+            deque.AddFirst(1);
+            deque.AddFirst(2);
+            Console.WriteLine(deque.RemoveLast());
+            deque.AddLast(3);
+            Console.WriteLine(deque.RemoveFirst());
+            deque.AddLast(4);
 
-            foreach (var operation in operations)
-            {
-                if (operation == "-")
-                {
-                    queue.Dequeue();
-                    stack.Pop();
-                }
-                else
-                {
-                    queue.Enqueue(Convert.ToInt32(operation));
-                    stack.Push(Convert.ToInt32(operation));
-                }
-            }
-
-            Console.WriteLine("QUEUE");
-            foreach (var element in queue)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("STACK");
-            foreach (var element in stack)
+            Console.WriteLine("DEQUEUE");
+            foreach (var element in deque)
             {
                 Console.WriteLine(element);
             }

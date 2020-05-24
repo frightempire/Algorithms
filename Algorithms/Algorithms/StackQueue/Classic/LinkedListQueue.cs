@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Algorithms.StackQueue.Helpers;
 
-namespace Algorithms
+namespace Algorithms.StackQueue.Classic
 {
     public class LinkedListQueue<T> : IEnumerable<T>
     {
-        private Node<T> _first;
-        private Node<T> _last;
+        private SinglyLinkedNode<T> _first;
+        private SinglyLinkedNode<T> _last;
 
         public void Enqueue(T item)
         {
-            var newLast = new Node<T>
+            var newLast = new SinglyLinkedNode<T>
             {
                 Next = null,
                 Item = item
@@ -42,7 +43,7 @@ namespace Algorithms
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new LinkedListEnumerator<T>(_first);
+            return new SinglyLinkedListEnumerator<T>(_first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
