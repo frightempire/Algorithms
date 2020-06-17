@@ -1,5 +1,7 @@
 ﻿using System;
-using Algorithms.StackQueue.Modifications;
+using System.Collections.Generic;
+using Algorithms.Sorting;
+using Algorithms.Sorting.Helpers;
 
 namespace Algorithms
 {
@@ -7,20 +9,16 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var deque = new Deque<int>();
-            deque.AddFirst(1);
-            deque.AddFirst(2);
-            Console.WriteLine(deque.RemoveLast());
-            deque.AddLast(3);
-            Console.WriteLine(deque.RemoveFirst());
-            deque.AddLast(4);
-
-            Console.WriteLine("DEQUEUE");
-            foreach (var element in deque)
+            var lineBuilder = new LineBuilder();
+            var points = new List<Point>
             {
-                Console.WriteLine(element);
-            }
+                new Point(1, 1),
+                new Point(2, 1), new Point(2, 2), new Point(2, 3), new Point(2, 4), new Point(2, 5),
+                new Point(3, 2), new Point(3, 3),
+                new Point(4, 2), new Point(4, 4)
+            };
 
+            Console.WriteLine(lineBuilder.Get4PointLineSegmentsCount(points));
             Console.ReadLine();
         }
     }
