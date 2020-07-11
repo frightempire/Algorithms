@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using Algorithms.Sorting;
-using Algorithms.Sorting.Helpers;
+using Algorithms.PriorityQueue.Helpers;
 
 namespace Algorithms
 {
@@ -9,16 +7,16 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var lineBuilder = new LineBuilder();
-            var points = new List<Point>
+            var initialBoard = new[]
             {
-                new Point(1, 1),
-                new Point(2, 1), new Point(2, 2), new Point(2, 3), new Point(2, 4), new Point(2, 5),
-                new Point(3, 2), new Point(3, 3),
-                new Point(4, 2), new Point(4, 4)
+                new[] {0, 1, 3},
+                new[] {4, 2, 5},
+                new[] {7, 8, 6}
             };
-
-            Console.WriteLine(lineBuilder.Get4PointLineSegmentsCount(points));
+            var puzzleSolver = new PuzzleSolver(new Board(initialBoard));
+            var stepsCount = puzzleSolver.Solve();
+            
+            Console.WriteLine(stepsCount);
             Console.ReadLine();
         }
     }
