@@ -1,5 +1,6 @@
 ﻿using System;
-using Algorithms.PriorityQueue.Helpers;
+using Algorithms.Trees.Algorithm;
+using Algorithms.Trees.Helpers;
 
 namespace Algorithms
 {
@@ -7,16 +8,19 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var initialBoard = new[]
-            {
-                new[] {0, 1, 3},
-                new[] {4, 2, 5},
-                new[] {7, 8, 6}
-            };
-            var puzzleSolver = new PuzzleSolver(new Board(initialBoard));
-            var stepsCount = puzzleSolver.Solve();
-            
-            Console.WriteLine(stepsCount);
+            var twoDimensionalTree = new TwoDimensionalTree();
+            twoDimensionalTree.Add(new Point(0,0));
+            twoDimensionalTree.Add(new Point(10,10));
+            twoDimensionalTree.Add(new Point(40,40));
+            twoDimensionalTree.Add(new Point(40,60));
+            twoDimensionalTree.Add(new Point(80,80));
+            twoDimensionalTree.Add(new Point(20,100));
+
+            var rectangleIntersections = twoDimensionalTree.RectangleSearch(new Rectangle(20, 30, 50, 70));
+            var closestPoint = twoDimensionalTree.NearestNeighborSearch(new Point(60, 40));
+
+            Console.WriteLine(string.Join("| ", rectangleIntersections));
+            Console.WriteLine($"Closest point : {closestPoint}");
             Console.ReadLine();
         }
     }
