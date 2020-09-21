@@ -1,4 +1,4 @@
-﻿using Algorithms.PriorityQueue.Algorithm;
+﻿using Algorithms.PriorityQueue.Structure;
 
 namespace Algorithms.PriorityQueue.Helpers
 {

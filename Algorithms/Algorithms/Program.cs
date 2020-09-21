@@ -1,6 +1,6 @@
 ﻿using System;
-using Algorithms.Trees.Algorithm;
-using Algorithms.Trees.Helpers;
+using Algorithms.Graphs.Algorithm;
+using Algorithms.Graphs.Structure;
 
 namespace Algorithms
 {
@@ -8,19 +8,19 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var twoDimensionalTree = new TwoDimensionalTree();
-            twoDimensionalTree.Add(new Point(0,0));
-            twoDimensionalTree.Add(new Point(10,10));
-            twoDimensionalTree.Add(new Point(40,40));
-            twoDimensionalTree.Add(new Point(40,60));
-            twoDimensionalTree.Add(new Point(80,80));
-            twoDimensionalTree.Add(new Point(20,100));
+            var graph = new Graph(9);
+            graph.AddEdge(0,1); graph.AddEdge(0,2); graph.AddEdge(0,5); graph.AddEdge(0,6);
+            graph.AddEdge(3,4); graph.AddEdge(3,5);
+            graph.AddEdge(4,5); graph.AddEdge(4,6);
+            graph.AddEdge(7,8);
 
-            var rectangleIntersections = twoDimensionalTree.RectangleSearch(new Rectangle(20, 30, 50, 70));
-            var closestPoint = twoDimensionalTree.NearestNeighborSearch(new Point(60, 40));
+            var dfs = new DFS(graph, 0);
 
-            Console.WriteLine(string.Join("| ", rectangleIntersections));
-            Console.WriteLine($"Closest point : {closestPoint}");
+            Console.WriteLine($"Path 0-3 : {string.Join(",", dfs.PathTo(3))}");
+            Console.WriteLine($"Path 0-2 : {string.Join(",", dfs.PathTo(2))}");
+            Console.WriteLine($"Path 0-4 : {string.Join(",", dfs.PathTo(4))}");
+            Console.WriteLine($"Path 0-7 : {string.Join(",", dfs.PathTo(7))}");
+
             Console.ReadLine();
         }
     }

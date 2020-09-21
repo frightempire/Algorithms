@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Algorithms.StackQueue.Helpers;
 
-namespace Algorithms.StackQueue.Classic
+namespace Algorithms.StackQueue.Structure
 {
     public class LinkedListStack<T> : IEnumerable<T>
     {

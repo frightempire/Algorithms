@@ -2,7 +2,7 @@
 using System.Linq;
 using Algorithms.Trees.Helpers;
 
-namespace Algorithms.Trees.Algorithm
+namespace Algorithms.Trees.Structure
 {
     /// <summary>
     /// 2d binary search tree

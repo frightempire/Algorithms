@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Algorithms.PriorityQueue.Algorithm
+namespace Algorithms.PriorityQueue.Structure
 {
     public class BinaryHeap<T> where T : class, IComparable
     {
